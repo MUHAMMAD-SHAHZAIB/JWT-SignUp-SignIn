@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { signup } from "../ulits/api";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -38,7 +41,6 @@ const SignUp = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="flex  flex-col gap-2">
@@ -50,7 +52,6 @@ const SignUp = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="flex  flex-col gap-2">
@@ -62,7 +63,6 @@ const SignUp = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              required
             />
           </div>
 
@@ -75,7 +75,6 @@ const SignUp = () => {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
-              required
             />
           </div>
 
